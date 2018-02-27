@@ -10,6 +10,8 @@ Management of common-pool resources in the absence of individual pricing can lea
 # How to use this repository
 This repository contains all the files necessary to replicate the results shown in the paper. To do so, follow the instructions below.
 
+1. **Open the Project repo on GitHub.** If you opened this project's landing page, you can do that by clicking on `View the Project on GitHub` on the left column of the page. If you're already on the GitHub repo, skip this step.
+
 1. **Download the replication folder** by clickling on the `Clone or download` button on the main page of the repository. If you don't have GitHub Desktop installed in your computer, you can still download the files by selecting `Donwload ZIP`. In this case, unzip the downloaded file.
 
 1. **Use the Master do-file to replicate the results.** Results can be replicated by running `Master.do` in the `Do-files` folder. It is only necessary to add your computer's username and path to the downloaded replication folder as described in *PART 2* of `Master.do`. You can select which sections to run by editing the globals in *PART 1*. Make sure to run the *packages* section to install all necessary packages before running the other sections.
