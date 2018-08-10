@@ -33,6 +33,7 @@
 		ssc install dataout, 	replace
 		ssc install estout, 	replace
 		ssc install reghdfe, 	replace
+		ssc install unique, 	replace
 	}
 	
 	ieboilstart, version(13.0)
@@ -59,8 +60,8 @@
 	* Set directories 
 	* ---------------	
 	* Luiza
-	if "`c(username)'" == "XX" {
-		global github	"ADD FOLDER PATH HERE"
+	if "`c(username)'" == "luiza" {
+		global github	"C:\Users\luiza\Documents\GitHub\Water-When-It-Counts"
 	}
 	
 	

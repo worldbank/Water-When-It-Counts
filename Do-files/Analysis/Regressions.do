@@ -58,7 +58,7 @@
 	
 	* Label variables
 	lab var	tmt_hh						"Individual feedback"
-	lab var	tmt_hh_post					"Individual feedback * post"
+	lab var	tmt_hh_post					"Individual feedback * Post"
 	lab var	tmt_hh_high					"Individual feedback * High water gap"
 	lab var	tmt_hh_post_high			"Individual feedback * Post * High water gap"
 	lab var high						"High water gap"
@@ -95,8 +95,9 @@
 					replace label ar2 se(%9.3f) ///
 					scalars("pair Randomization pairs fixed-effects" "month Month of planting fixed-effects") ///
 					noconstant star(* 0.10 ** 0.05 *** 0.01) ///
-					addnotes(Notes: Observations at are at household-round-plot-crop-growth stage level. Sample is restricted to plots that were cultivated. Standard errors are clustered by household to account for autocorrelation. \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)) nonotes nomtitles ///
-					order(post tmt_hh post tmt_hh_post high post_high tmt_hh_high tmt_hh_post_high)
+					order(post tmt_hh post tmt_hh_post high post_high tmt_hh_high tmt_hh_post_high) ///
+					addnotes(Notes: Observations at are at household-round-plot-crop-growth stage level. The dummy for individual feedback indicates whether a household received personalized information about how their water usage compares to the water requirements of their main crop in each growth stage, as opposed to general information about the water requirements of that crop per growth stage. The water gap is computed as water availability minus growth stage specific water requirements, so a negative water gap indicates insufficient water availability. Households are considered to have a high water gap if at least 50\% of their pre-feedback water gap observations at household-round-plot-crop-growth stage level is above the median water gap in the same scheme and growth stage. Sample is restricted to plots that were cultivated. Standard errors are clustered by household to account for autocorrelation. \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)) nonotes nomtitles
+					
 	
 	sleep $sleep				
 	filefilter 	"$out_regs/delete_me.tex" "$out_regs/water_gap_neg.tex", ///				
@@ -187,12 +188,12 @@
 					replace label ar2 se(%9.3f) ///
 					noconstant star(* 0.10 ** 0.05 *** 0.01) ///
 					scalars("pair Randomization pairs fixed-effects" "round Round fixed-effects") ///
-					addnotes(Notes: Observations at are at household-round-plot level. Sample is restricted to plots that were cultivated. Standard errors are clustered by household. \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)) nonotes nomtitles ///
+					addnotes(Notes: Observations at are at household-round-plot level. The dummy for individual feedback indicates whether a household received personalized information about how their water usage compares to the water requirements of their main crop in each growth stage, as opposed to general information about the water requirements of that crop per growth stage. The water gap is computed as water availability minus growth stage specific water requirements, so a negative water gap indicates insufficient water availability. Sample is restricted to plots that were cultivated. Standard errors are clustered by household. \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)) nonotes nomtitles ///
 					order(tmt_hh post tmt_hh_post av_negative_pre tmt_hh_av_negative_pre post_av_negative_pre tmt_hh_post_av_negative_pre) ///
 					keep(tmt_hh post av_negative_pre tmt_hh_post tmt_hh_av_negative_pre post_av_negative_pre tmt_hh_post_av_negative_pre)
 	
 	sleep $sleep
 	filefilter 	"$out_regs/delete_me.tex" "$out_regs/ln_yield_mtzha_med.tex", 	///				
-				from("{l}") to("{p{.9\BStextwidth}}") replace
+				from("{l}") to("{@{}p{1.1\BStextwidth}}") replace
 	erase 		"$out_regs/delete_me.tex"
 		

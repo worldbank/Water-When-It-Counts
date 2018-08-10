@@ -60,7 +60,7 @@
 		
 		* Collapse to HH level
 		keep 		hh_id plot_id round crop_id gs d_conflict* d_water*  post
-		collapse	post (max)  d_conflict* d_water*, by(hh_id round)				// hh-plot-crop-gs -> hh-round
+		collapse	post (max)  d_conflict* d_water*, by(hh_id round)			// hh-plot-crop-gs -> hh-round
 		reshape 	long d_conflict_mth d_water_mth, i(hh_id round) j(month)	// hh-round -> hh-round-month
 		drop if 	d_conflict_mth == .  & d_water_mth == .
 			
@@ -89,7 +89,8 @@
 		gr	bar 	d_conflict_mth d_water_mth if post == 0, ///
 			over	(month, label (angle(45))) ///
 			blabel	(total, format(%9.1f) size(vsmall)) ///
-			legend	(order (1 "Proportion of households that report conflict" 2 "Proportion that report enough water") cols(1)) ///
+			legend	(order (1 "Reported conflict over water" 2 "Reported having enough water") ///
+					 cols(1) pos(12)) ///
 			ytitle	(Percentage of households) ///
 			bgcolor (white) graphregion(color(white)) ///
 			text	(100 92 "Regression of conflict" "on enough water" "Slope = `beta'" "R{superscript:2} = `r2'", ///
@@ -116,7 +117,7 @@
 		* Create graph
 		gr	bar 	d_conflict_mth d_conflict_mth_post, over(cal_month) ///
 			blabel	(total, format(%9.1f) size(vsmall)) ///
-			legend	(order (1 "Pre-feedback" 2 "Post-feedback")) ///
+			legend	(order (1 "Pre-feedback" 2 "Post-feedback") pos(12)) ///
 			ytitle	(Percentage of households) ///
 			bgcolor (white) graphregion(color(white))
 		
@@ -130,7 +131,7 @@
 		* Create graph
 		gr	bar 		d_water_mth d_water_mth_post, over(cal_month) ///
 			blabel		(total, format(%9.0f) size(vsmall)) ///
-			legend		(order (1 "Pre-feedback" 2 "Post-feedback")) ///
+			legend		(order (1 "Pre-feedback" 2 "Post-feedback") pos(12)) ///
 			ytitle		(Percentage of households) ///
 			bgcolor 	(white) ///
 			graphregion	(color(white))
@@ -166,8 +167,9 @@
 				(line req_maize gs, color(cranberry) lwidth(.8)) ///
 				(line req_cabbage gs, color(eltblue) lwidth(.8)) ///
 				(line req_baby_corn gs, color(navy) lwidth(.8)), ///
-				bgcolor (white) graphregion(color(white)) ///
-				ytitle(mm/day)
+				bgcolor(white) graphregion(color(white)) ///
+				ytitle(mm/day) ///
+				legend(pos(12))
 				
 		* Export graph
 		gr export	"$out_plots/Water requirements.png", width(5000) replace
@@ -199,7 +201,7 @@
 				(kdensity water_gap if gs == 4 & post == 0 & scheme_id == `scheme', lcolor(navy) lwidth(.6)) , ///
 				legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4)) ///
 				xtitle("mm/day (log)") ytitle("Density") xline(0) title(`schemeName') ///
-				bgcolor (white) graphregion(color(white)) ///
+				bgcolor (white) graphregion(color(white) legend(pos(12))) ///
 				name(Pre`scheme')
 						
 	}
@@ -211,7 +213,7 @@
 			(kdensity water_gap if gs == 4 & post == 0, lcolor(navy) lwidth(.6)) , ///
 			legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4)) ///
 			xtitle("mm/day (log)") ytitle("Density") xline(0) title(Schemes pooles) ///
-			bgcolor (white) graphregion(color(white)) ///
+			bgcolor (white) graphregion(color(white) legend(pos(12))) ///
 			name(PreAll)
 			
 	* Combine graphs
@@ -245,7 +247,7 @@
 					(kdensity water_gap if gs == 2 & post == `post' & tmt_hh == `tmt', lcolor(emidblue) lwidth(.6)) || ///
 					(kdensity water_gap if gs == 3 & post == `post' & tmt_hh == `tmt', lcolor(edkblue) lwidth(.6)) || ///
 					(kdensity water_gap if gs == 4 & post == `post' & tmt_hh == `tmt', lcolor(navy) lwidth(.6)) , ///
-					legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4)) ///
+					legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4) pos(12)) ///
 					xtitle("mm/day (log)") ytitle("Density") xline(0) title("`tmtName': `tmtPeriod'") ///
 					bgcolor (white) graphregion(color(white)) ///
 					name(`tmtPeriod'`tmt')
@@ -331,7 +333,7 @@
 				(line water_gap week if scheme_id == `scheme', lcolor(edkblue) lwidth(0.5) yaxis(2)), ///
 				graphregion(color(white)) bgcolor(white) ///
 				ytitle("Daily volume (mm/hectare)", axis(2)) ///
-				legend(label(1 "Share of plots in deficit") label(2 "Total scheme daily" "water gap")) ///
+				legend(label(1 "Share of plots in deficit") label(2 "Total scheme daily" "water gap") pos(12)) ///
 				xlabel(27 "Jul 15" 54 "Jan 16" 80 "Jul 16" 106 "Jan 17") ///
 				xtitle("") ///
 				title(`schemeName') ///
@@ -350,7 +352,7 @@
 			(line water_gap week, lcolor(edkblue) lwidth(0.5) yaxis(2)), ///
 			graphregion(color(white)) bgcolor(white) ///
 			ytitle("Daily volume (mm/hectare)", axis(2)) ///
-			legend(label(1 "Share of plots in deficit") label(2 "Total scheme daily" "water gap")) ///
+			legend(label(1 "Share of plots in deficit") label(2 "Total scheme daily" "water gap") pos(12)) ///
 			xlabel(27 "Jul 15" 54 "Jan 16" 80 "Jul 16" 106 "Jan 17") ///
 			xtitle("") ///
 			title(Pooled schemes) ///
@@ -411,7 +413,7 @@
 				 orient(horizontal) size(vsmall) justification(center) fcolor(white) box margin(small)) ///
 			xtitle("Water requirement (mm/day)") ///
 			ytitle("Water availability, net of rain (mm/day)") ///
-			legend(order (6 "Pre-feedback" 7 "Post-feedback" 3 "Pre-feedback 95%CI" 1 "Post-feedback 95%CI")) ///
+			legend(order (6 "Pre-feedback" 7 "Post-feedback" 3 "Pre-feedback 95%CI" 1 "Post-feedback 95%CI") pos(12)) ///
 			graphregion(color(white)) bgcolor(white)
 			
 	gr export	"$out_plots/corr_avail_req.png", width(5000) replace
@@ -443,12 +445,7 @@
 				xlabel(2 "Jul/15" 28 "Jan/16" 54 "Jul/16" 80 "Jan/17" 106 "Jul/17" 132 "Jan/18") ///
 				ytitle("Proportion of plots with negative water gap ", axis(1)) ///
 				xtitle("") ///
-				legend(order(1 "Rainfall" 2 "Individual feedback" 3 "General feedback") cols(3) symxsize(3.5)) ///
-				note("Notes: Observations are plot-crop-week. Lines show the proportion of plots in the week (x-axis)" ///
-					 "where water gap is negative (water availability<water requirements) given the crop cultivated" ///
-					 "and that crop's growth stage in the week. If plots have multiple crops cultivated simultaneously, " ///
-					 "the plot is represented once for each crop. The grey dotted line indicates the week in December " ///
-					 "2016 when all farmers had received feedback. Grey bars measure rainfall in the week.") ///
+				legend(order(1 "Rainfall" 2 "Individual feedback" 3 "General feedback") cols(3) symxsize(3.5) pos(12)) 
 				graphregion(color(white)) bgcolor(white)
 	
 	* Save 
@@ -472,7 +469,7 @@
 			(line water week if scheme_id == 10, lcolor(edkblue) lwidth(0.5) ytitle("Water availability mm/day")) ///
 			(line water week if scheme_id == 20, lcolor(emidblue) lwidth(0.5))	///
 			(line water week if scheme_id == 30, lcolor(ebblue) lwidth(0.5)), 	///
-			legend(order(1 "Precipitation" 2 "Scheme 1" 3 "Scheme 2" 4 "Scheme 3")) ///
+			legend(order(1 "Precipitation" 2 "Scheme 1" 3 "Scheme 2" 4 "Scheme 3") pos(12)) ///
 			xlabel(27 "Jul 15" 53 "Jan 16" 79 "Jul 16" 105 "Jan 17") ///
 			graphregion(color(white)) bgcolor(white)
 
@@ -513,9 +510,6 @@
 			xtitle(" " "Month of planting") ///
 			ytitle("% of crops planted and harvested" "between July 2015 and July 2016") ///
 			barwidth(.9) ///
-			note(	"Note: Sample includes all of the crops planted after June 2015 and harvested before" ///
-					"August 2016. There were `r(mean)' crops planted in this period. The height of the bars" ///
-					"indicates the proportion of these `r(mean)' crops planted in each month.") ///
 			graphregion(color(white)) bgcolor(white)
 	
 	* Save graph

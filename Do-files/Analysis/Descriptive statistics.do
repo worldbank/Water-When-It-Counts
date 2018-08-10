@@ -133,7 +133,7 @@
 		"Average number of plots farmed per household & " %8.3gc (share_fup1)  "  & " %8.3gc (share_fup2)  "  & " %8.3gc (share_fup3)  "  & " %8.3gc (share_fup4)  "  & " %8.3gc (share_fup5)  "  & " %8.3gc (share_fup6)  " & " %8.3gc (share_fup7)  " \\" _n ///
 		"Share of listed households surveyed          & " %8.0gc (survey_fup1) "\% & " %8.0gc (survey_fup2) "\% & " %8.0gc (survey_fup3) "\% & " %8.0gc (survey_fup4) "\% & " %8.0gc (survey_fup5) "\% & " %8.0gc (survey_fup6) "\% & " %8.0gc (survey_fup7) "\%  \\" _n ///
 		"\hline\hline     \\[-1.8ex]" _n ///
-		"\multicolumn{8}{p{1.1\textwidth}}{\footnotesize Notes: Two of the three schemes were included in round one, with the third added for round 2, causing the substantial increase in households and plots from round 1 to 2. During each round, households that weren't surveyed in any previous round are also asked about missed rounds retroactively, so reponse rates are expected to be higher for earlier rounds, as there were multiple occasions for households to be asked about their respective periods.} " _n ///
+		"\multicolumn{8}{@{}p{1.25p\textwidth}}{\footnotesize Notes: Two of the three schemes were included in round one, with the third added for round 2, causing the substantial increase in households and plots from round 1 to 2. During each round, households that weren't surveyed in any previous round are also asked about missed rounds retroactively, so reponse rates are expected to be higher for earlier rounds, as there were multiple occasions for households to be asked about their respective periods.} " _n ///
 		"\end{tabular}"
 	file close 	descTable
 	
@@ -328,10 +328,10 @@
 	set obs  `=_N + 5'
 	gen sort = 	_n
 	 
-	replace _var4 = "\\ \multicolumn{4}{c}{\textit{Sample sizes in baseline}} \\ \\" in 19
-	replace _var4 = "\\ \multicolumn{4}{c}{\textit{General scheme characteristics in baseline}} \\ \\" in 20
-	replace _var4 = "\\ \multicolumn{4}{c}{\textit{Share of households that planted common crops in baseline}} \\ \\" in 22
-	replace _var4 = "\\ \multicolumn{4}{c}{\textit{Average share of plot area dedicated to most common crops in baseline}} \\ \\" in 23
+	replace _var4 = "\\ \multicolumn{4}{c}{\textit{Sample sizes at baseline}} \\ \\" in 19
+	replace _var4 = "\\ \multicolumn{4}{c}{\textit{General scheme characteristics at baseline}} \\ \\" in 20
+	replace _var4 = "\\ \multicolumn{4}{c}{\textit{Share of households that planted common crops at baseline}} \\ \\" in 22
+	replace _var4 = "\\ \multicolumn{4}{c}{\textit{Average share of plot area dedicated to most common crops at baseline}} \\ \\" in 23
 	
 	* Add irrigation type
 	replace _var4 = "Irrigation type" 	in 21
@@ -401,7 +401,7 @@
 				
 	filefilter 	"$out_desc/delete_me1.tex" "$out_desc/delete_me2.tex", 	///		
 				from("\BSend{tabular}") ///
-				to("\BShline \BS\BS[-1.8ex] \BSmulticolumn{4}{@{}p{.9\BStextwidth}} {\BStextit{Notes}: Data refers to rounds 1-3 (rounds pre-feedback experiment). The number of listed households and plots indicates the total number of unique observations in those rounds. All other variables are averaged across the 3 rounds.} \BSend{tabular}") replace
+				to("\BShline \BS\BS[-1.8ex] \BSmulticolumn{4}{@{}p{1.55\BStextwidth}} {\BSfootnotesize \BStextit{Notes}: Data refers to rounds 1-3 (rounds pre-feedback experiment). The number of listed households and plots indicates the total number of unique observations in those rounds. All other variables are averaged across the 3 rounds.} \BSend{tabular}") replace
 	sleep $sleep
 				
 	* Make footer line double and add note
