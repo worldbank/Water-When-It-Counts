@@ -133,7 +133,7 @@
 		"Average number of plots farmed per household & " %8.3gc (share_fup1)  "  & " %8.3gc (share_fup2)  "  & " %8.3gc (share_fup3)  "  & " %8.3gc (share_fup4)  "  & " %8.3gc (share_fup5)  "  & " %8.3gc (share_fup6)  " & " %8.3gc (share_fup7)  " \\" _n ///
 		"Share of listed households surveyed          & " %8.0gc (survey_fup1) "\% & " %8.0gc (survey_fup2) "\% & " %8.0gc (survey_fup3) "\% & " %8.0gc (survey_fup4) "\% & " %8.0gc (survey_fup5) "\% & " %8.0gc (survey_fup6) "\% & " %8.0gc (survey_fup7) "\%  \\" _n ///
 		"\hline\hline     \\[-1.8ex]" _n ///
-		"\multicolumn{8}{@{}p{1.25p\textwidth}}{\footnotesize Notes: Two of the three schemes were included in round one, with the third added for round 2, causing the substantial increase in households and plots from round 1 to 2. During each round, households that weren't surveyed in any previous round are also asked about missed rounds retroactively, so reponse rates are expected to be higher for earlier rounds, as there were multiple occasions for households to be asked about their respective periods.} " _n ///
+		"\multicolumn{8}{@{}p{1.25\textwidth}}{\footnotesize Notes: Two of the three schemes were included in round one, with the third added for round 2, causing the substantial increase in households and plots from round 1 to 2. During each round, households that weren't surveyed in any previous round are also asked about missed rounds retroactively, so reponse rates are expected to be higher for earlier rounds, as there were multiple occasions for households to be asked about their respective periods.} " _n ///
 		"\end{tabular}"
 	file close 	descTable
 	
@@ -401,7 +401,7 @@
 				
 	filefilter 	"$out_desc/delete_me1.tex" "$out_desc/delete_me2.tex", 	///		
 				from("\BSend{tabular}") ///
-				to("\BShline \BS\BS[-1.8ex] \BSmulticolumn{4}{@{}p{1.55\BStextwidth}} {\BSfootnotesize \BStextit{Notes}: Data refers to rounds 1-3 (rounds pre-feedback experiment). The number of listed households and plots indicates the total number of unique observations in those rounds. All other variables are averaged across the 3 rounds.} \BSend{tabular}") replace
+				to("\BShline \BS\BS[-1.8ex] \BSmulticolumn{4}{@{}p{\BStextwidth}} {\BSfootnotesize \BStextit{Notes}: Data refers to rounds 1-3 (rounds pre-feedback experiment). The number of listed households and plots indicates the total number of unique observations in those rounds. All other variables are averaged across the 3 rounds.} \BSend{tabular}") replace
 	sleep $sleep
 				
 	* Make footer line double and add note

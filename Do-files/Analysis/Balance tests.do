@@ -127,7 +127,7 @@
 				water_gap water_gap_neg water_gap_abs, ///
 				grpvar(tmt_hh) grplabels(1 Individual feedback @ 0 General feedback) ///
 				covariates(pair) vce(cluster hh_id) ///
-				rowvarlabels texnotewidth(1.4) ///
+				rowvarlabels texnotewidth(1.55) ///
 				notecombine tblnote(Data refers to round 2 when available, as feedback was randomized based on data from this round, and round 1 when the household wasn't surveyed on round 2. Seven households did not cultivate any crops during this round's period. For these households, the average share of plot area cultivated is zero, and yields are missing. The number of observations for water gap is different from the number of observations for water availability due to lack of data on water requirements for onion.) ///
 				savetex("$out_bal\delete_me1.tex") replace
 

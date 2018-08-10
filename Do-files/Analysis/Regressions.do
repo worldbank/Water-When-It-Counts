@@ -101,7 +101,7 @@
 	
 	sleep $sleep				
 	filefilter 	"$out_regs/delete_me.tex" "$out_regs/water_gap_neg.tex", ///				
-				from("{l}") to("{p{.9\BStextwidth}}") replace
+				from("{l}") to("{@{}p{.9\BStextwidth}}") replace
 	erase 		"$out_regs/delete_me.tex"
 	
 	
