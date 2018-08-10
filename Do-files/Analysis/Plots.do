@@ -46,7 +46,9 @@
 ********************************************************************************
 *					PART 1: Household level plots
 *******************************************************************************/
-
+	
+	graph drop _all
+	
 	use 	"$analysis_dt\hhwater_plotcropgs.dta", clear
 			
 * ------------------------------------------------------------------------------
@@ -199,9 +201,9 @@
 				(kdensity water_gap if gs == 2 & post == 0 & scheme_id == `scheme', lcolor(emidblue) lwidth(.6)) || ///
 				(kdensity water_gap if gs == 3 & post == 0 & scheme_id == `scheme', lcolor(edkblue) lwidth(.6)) || ///
 				(kdensity water_gap if gs == 4 & post == 0 & scheme_id == `scheme', lcolor(navy) lwidth(.6)) , ///
-				legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4)) ///
+				legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4) pos(12)) ///
 				xtitle("mm/day (log)") ytitle("Density") xline(0) title(`schemeName') ///
-				bgcolor (white) graphregion(color(white) legend(pos(12))) ///
+				bgcolor (white) graphregion(color(white)) ///
 				name(Pre`scheme')
 						
 	}
@@ -211,9 +213,9 @@
 			(kdensity water_gap if gs == 2 & post == 0, lcolor(emidblue) lwidth(.6)) || ///
 			(kdensity water_gap if gs == 3 & post == 0, lcolor(edkblue) lwidth(.6)) || ///
 			(kdensity water_gap if gs == 4 & post == 0, lcolor(navy) lwidth(.6)) , ///
-			legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4)) ///
+			legend(label (1 "1") label (2 "2") label (3 "3") label (4 "4") cols(4) pos(12)) ///
 			xtitle("mm/day (log)") ytitle("Density") xline(0) title(Schemes pooles) ///
-			bgcolor (white) graphregion(color(white) legend(pos(12))) ///
+			bgcolor (white) graphregion(color(white)) ///
 			name(PreAll)
 			
 	* Combine graphs
@@ -445,7 +447,7 @@
 				xlabel(2 "Jul/15" 28 "Jan/16" 54 "Jul/16" 80 "Jan/17" 106 "Jul/17" 132 "Jan/18") ///
 				ytitle("Proportion of plots with negative water gap ", axis(1)) ///
 				xtitle("") ///
-				legend(order(1 "Rainfall" 2 "Individual feedback" 3 "General feedback") cols(3) symxsize(3.5) pos(12)) 
+				legend(order(1 "Rainfall" 2 "Individual feedback" 3 "General feedback") cols(3) symxsize(3.5) pos(12)) ///
 				graphregion(color(white)) bgcolor(white)
 	
 	* Save 
