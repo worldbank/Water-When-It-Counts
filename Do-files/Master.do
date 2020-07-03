@@ -10,15 +10,12 @@
 ********************************************************************************/
 	
 	* select which parts of this do-file to run
-	local 	packages			1	// Install packages -- only needs to be ran once in each computer
+	local 	packages			0	// Install packages -- only needs to be ran once in each computer
 	local	attrition			1	// Run attrition test
 	local 	balance_tables	 	1	// Create balance tables
 	local	descriptives		1 	// Create descriptive statistics graphs
 	local 	graphs				1 	// Create graphs
 	local 	regressions			1 	// Run regressions and export results
-
-	
-		
 	
 ********************************************************************************
 *			PART 1:  Set standard settings and install packages				   *
@@ -47,7 +44,7 @@
 	global monthMax		35			// Number of months with observations
 	global sleep		1200		// Delay code for running so it doesn't crash
 	
-	
+	set scheme s2color
 		
 ********************************************************************************
 *				PART 2:  Prepare globals and define paths					   *
@@ -60,9 +57,8 @@
 	* Set directories 
 	* ---------------	
 	* Luiza
-	if "`c(username)'" == "luiza" {
-		global github	"C:\Users\luiza\Documents\GitHub\Water-When-It-Counts"
-	}
+	global github	"C:\Users\wb501238\Documents\GitHub\Water-When-It-Counts"
+	
 	
 	
  	* Subfolder globals

@@ -1,0 +1,35 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{2}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         \\
+\hline
+Individual feedback &      0.0208         &    -0.00756         \\
+                    &     (0.124)         &     (0.187)         \\
+[1em]
+Post                &       0.422         &       0.690         \\
+                    &     (0.391)         &     (0.462)         \\
+[1em]
+Individual feedback * Post&      -0.134         &      -0.333         \\
+                    &     (0.198)         &     (0.289)         \\
+[1em]
+Average pre-feedback water gap is negative&                     &     -0.0892         \\
+                    &                     &     (0.218)         \\
+[1em]
+Individual feedback * Average pre-feedback water gap is negative&                     &      0.0693         \\
+                    &                     &     (0.239)         \\
+[1em]
+Post * Average pre-feedback water gap is negative&                     &      -0.548\sym{**} \\
+                    &                     &     (0.266)         \\
+[1em]
+Individual feedback * Post * Average pre-feedback water gap is negative&                     &       0.496         \\
+                    &                     &     (0.354)         \\
+\hline
+Observations        &         660         &         617         \\
+Adjusted \(R^{2}\)  &       0.058         &       0.074         \\
+Randomization pairs fixed-effects&         Yes         &         Yes         \\
+Round fixed-effects &         Yes         &         Yes         \\
+\hline\hline
+\multicolumn{3}{@{}p{1.1\textwidth}}{\footnotesize Notes: Observations at are at household-round-plot level. The dummy for individual feedback indicates whether a household received personalized information about how their water usage compares to the water requirements of their main crop in each growth stage, as opposed to general information about the water requirements of that crop per growth stage. The water gap is computed as water availability minus growth stage specific water requirements, so a negative water gap indicates insufficient water availability. Sample is restricted to plots that were cultivated. Standard errors are clustered by household. \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

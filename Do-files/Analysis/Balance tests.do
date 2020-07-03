@@ -137,23 +137,10 @@
 	
 	reg tmt_hh share_plant pct_conflict pct_water_hh yield i.pair, vce(cluster hh_id)
 	testparm share_plant pct_conflict pct_water_hh yield
-	if round(r(F),0.01) == 1.46	{ 
-		local test_F_hh 1.46
-	}
-	else {
-		di as error "Fix F-stat for households vars"
-		error
-	}
 	
 	reg tmt_hh ln_totwater_gs ln_rain_gs water_gap water_gap_neg water_gap_abs i.pair, vce(cluster hh_id)
 	testparm ln_totwater_gs ln_rain_gs water_gap water_gap_neg water_gap_abs
-	if round(r(F),0.01) == 2.89 {
-		local test_F_gs 2.89**
-	}
-	else {
-		di as error "Fix F-stat for gs vars"
-		error
-	}
+	
 	
 ********************************************************************************
 *						PART 6: Adjust format

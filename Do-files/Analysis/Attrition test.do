@@ -161,30 +161,13 @@
 				vce(cluster hh_id)
 	testparm 	share_plant pct_conflict pct_water_hh yield
 	
-	* Prepare local to export
-	if round(r(F),0.01) == 0.79	{ 
-		local test_F_hh 0.79
-	}
-	else {
-		di as error "Fix F-stat for households vars"
-		error
-	}
 	
 	* Calculate F-stat for hh-plot-crop-gs level variables
 	* ----------------------------------------------------	
 	reg 		attrition ln_totwater_gs water_gap water_gap_neg water_gap_abs, ///
 				vce(cluster hh_id)
 	testparm 	ln_totwater_gs water_gap water_gap_neg water_gap_abs
-	
-	* Prepare local to export
-	if abs(round(r(F),0.01) - 1.22) < 0.01 {
-		local test_F_gs 1.22
-	}
-	else {
-		di as error "Fix F-stat for gs vars"
-		error
-	}
-	
+		
 	
 ********************************************************************************
 *						PART 6: Adjust table format
