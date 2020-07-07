@@ -1,0 +1,26 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{2}{c}}
+\hline\hline
+                    &\multicolumn{2}{c}{Depende variable: self-reported irrigation ratio (GS3/GS1)}\\\cmidrule(lr){2-3}
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         \\
+\hline
+Post-feedback       &      0.0950\sym{**} &       0.126\sym{*}  \\
+                    &     (0.046)         &     (0.067)         \\
+[1em]
+Individual-feedback &                     &     -0.0238         \\
+                    &                     &     (0.043)         \\
+[1em]
+Post-feedback $\times$ Individual-feedback&                     &     -0.0502         \\
+                    &                     &     (0.090)         \\
+[1em]
+Constant            &       1.076\sym{***}&       1.088\sym{***}\\
+                    &     (0.021)         &     (0.032)         \\
+\hline
+Observations        &        3832         &        3812         \\
+Adjusted \(R^{2}\)  &       0.012         &       0.016         \\
+Scheme fixed effects&         Yes         &         Yes         \\
+\hline\hline
+\multicolumn{3}{l}{\footnotesize Notes: Robust standard errors in parentheses, clustered at household level.}\\
+\end{tabular}
+}

@@ -1,0 +1,38 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+                    &\multicolumn{3}{c}{Depende variable: water gap (mm/day)}         \\\cmidrule(lr){2-4}
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+\hline
+Post-feedback       &       0.419\sym{***}&       0.424\sym{***}&       0.422\sym{***}\\
+                    &     (0.050)         &     (0.078)         &     (0.086)         \\
+[1em]
+Individual-feedback &                     &      0.0716         &      -0.101         \\
+                    &                     &     (0.109)         &     (0.095)         \\
+[1em]
+Individual-feedback $\times$ Post-feedback&                     &    -0.00232         &       0.191         \\
+                    &                     &     (0.106)         &     (0.118)         \\
+[1em]
+High water user     &                     &                     &       0.255\sym{***}\\
+                    &                     &                     &     (0.095)         \\
+[1em]
+Individual-feedback $\times$ High water user&                     &                     &       0.369\sym{**} \\
+                    &                     &                     &     (0.169)         \\
+[1em]
+Post-feedback $\times$ High water user&                     &                     &     0.00955         \\
+                    &                     &                     &     (0.154)         \\
+[1em]
+Individual-feedback $\times$ Post-feedback $\times$ High water user&                     &                     &      -0.341\sym{*}  \\
+                    &                     &                     &     (0.203)         \\
+[1em]
+Constant            &      -0.657\sym{***}&      -0.694\sym{***}&      -0.822\sym{***}\\
+                    &     (0.052)         &     (0.052)         &     (0.061)         \\
+\hline
+Observations        &        2784         &        2764         &        2722         \\
+Adjusted \(R^{2}\)  &       0.189         &       0.191         &       0.224         \\
+Scheme fixed effects&         Yes         &         Yes         &         Yes         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize Notes: Robust standard errors in parentheses, clustered at household level.}\\
+\end{tabular}
+}

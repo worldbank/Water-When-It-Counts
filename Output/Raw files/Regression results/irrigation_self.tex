@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{4}{c}{Depende variable: self-reported irrigation}                         \\\cmidrule(lr){2-5}
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Growth stage 1}&\multicolumn{1}{c}{Growth stage 2}&\multicolumn{1}{c}{Growth stage 3}&\multicolumn{1}{c}{Growth stage 4}\\
+\hline
+Post-feedback       &      -5.086\sym{***}&      -4.267\sym{**} &      -3.142         &      -5.255\sym{**} \\
+                    &     (1.906)         &     (2.036)         &     (1.896)         &     (2.171)         \\
+[1em]
+Individual-feedback &      -3.870\sym{**} &      -3.587         &      -3.568\sym{*}  &      -4.337\sym{*}  \\
+                    &     (1.946)         &     (2.171)         &     (2.062)         &     (2.253)         \\
+[1em]
+Post-feedback $\times$ Individual-feedback&       2.427         &       2.175         &       2.010         &       2.859         \\
+                    &     (2.376)         &     (2.526)         &     (2.398)         &     (2.506)         \\
+[1em]
+Constant            &       21.53\sym{***}&       21.59\sym{***}&       21.73\sym{***}&       22.35\sym{***}\\
+                    &     (1.437)         &     (1.581)         &     (1.389)         &     (1.698)         \\
+\hline
+Observations        &         943         &         943         &         943         &         943         \\
+Adjusted \(R^{2}\)  &       0.209         &       0.193         &       0.188         &       0.159         \\
+Scheme fixed effects&         Yes         &         Yes         &         Yes         &         Yes         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize Notes: Robust standard errors in parentheses, clustered at household level.}\\
+\end{tabular}
+}
